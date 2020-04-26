@@ -67,6 +67,7 @@ air[,c("date","year","month", "day")]
 air <- air %>%
  group_by(day,month) %>%
  filter(n() == 2)
+ ungroup (df)
 
 air
   
@@ -86,7 +87,7 @@ wider_df
 ```{r}
 
 wider_df <- wider_df %>% 
-  mutate(flights = y2019/y2020,
+  mutate(flights = y2020/y2019,
        date = str_c("2020",month, day, sep="-"),
        date = ymd(date)
        )
